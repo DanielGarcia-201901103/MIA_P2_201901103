@@ -1,0 +1,45 @@
+h2{
+    color: chartreuse;
+    font-family: "Roboto Mono", monospace;
+    font-optical-sizing: auto;
+    font-weight: 700;
+    font-style: normal;
+}
+
+.gbotones{
+    background-color: rgb(69, 148, 122);
+}
+.gbotonesR{
+    background-color: rgb(126, 115, 7);
+
+}
+.botonE{
+    background-color: rgb(59, 77, 71);
+}
+
+.gbotonIn{
+    background-color: rgb(69, 148, 122);
+
+    border-radius: 8px; /* Borde redondo */
+    border: 1px solid transparent;
+    font-size: 1em;
+    font-weight: 500;
+    font-family: inherit;
+    padding: 10px 20px; /* Espaciado interno */
+    cursor: pointer;
+    transition: border-color 0.25s;
+}
+
+.conjuntoBotones{
+    display: flex;
+    justify-content:  center;
+    margin: 10px;
+}
+
+#fileInput {
+    border-radius: 8px; /* Borde redondo */
+    font-size: 16px; /* Tamaño de fuente */
+    padding: 10px 20px; /* Espaciado interno */
+    display: inline-block; /* Alinear en línea con el botón */
+    margin-right: 10px; /* Margen derecho para separar del botón */
+}
