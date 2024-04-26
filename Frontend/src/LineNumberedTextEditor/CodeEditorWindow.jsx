@@ -7,97 +7,88 @@ import InputGroup from 'react-bootstrap/InputGroup';
 
 import { saveAs } from 'file-saver'; // Importa la función saveAs de FileSaver.js
 
+import { useNavigate } from 'react-router-dom';
 
 const CodeEditorWindow = () => {
-  const [inputValue, setInputValue] = useState("");
-  const [outputValue, setOutputValue] = useState("");
+  const navigate = useNavigate();
+    const [vcoman, setComandos] = useState("");
+    const[outputValue, setOutputValue] = useState("");
+    //const [imagen, setImagen] = useState('https://yakurefu.com/wp-content/uploads/2020/02/Chi_by_wallabby.jpg')
+    const handleSubmit = async (e) => {
+      setOutputValue("Cargando..." + vcoman);
+      /*
+        e.preventDefault();
+        await fetch('http://localhost:5000/login', {
+            method: 'POST',
+            mode: 'cors',
+            body: JSON.stringify({
+                Usuario: userLogin,
+                Password: passwordLogin
+            }),
+            headers: {
+                'Access-Control-Allow-Origin': '*',
+                'Content-Type': 'application/json'
+            }
+        })
 
-  const handleEditorChange = (value) => {
-    setInputValue(value);
-  };
-
-  const handleRunCode = async (e) => {
-    setOutputValue("");
-    if (inputValue != "") {
-      e.preventDefault();
-      await fetch('http://localhost:4000/analizar', {
-        method: 'POST',
-        mode: 'cors',
-        body: JSON.stringify({ texto: inputValue }),
-        headers: {
-          'Access-Control-Allow-Origin': '*',
-          'Content-Type': 'application/json'
+            .then(response => response.json())
+            .then(data => validar(data));
+            */
+        /*
+        .then(function(response) {
+        if (response.ok) {
+            return response.json();
         }
-      }).then(response => response.json()).then(data => validar(data));
-
-      // Aquí puedes implementar la lógica para ejecutar el código y actualizar la salida
-      // Ejemplo: establecer la salida como el valor de entrada
+        throw new Error('Error en la solicitud POST');
+        })
+        .then(function(responseData) {
+            // Aquí puedes acceder a la respuesta del backend (responseData)
+        })
+        .catch(function(error) {
+            console.log('Error:', error.message);
+        });*/
     }
+/*
+    const validar = (data) => {
+        console.log(data)
+        //setImagen(data.Imagenbase64)
+        if (data.data === "Administrador") {
+            window.localStorage.setItem("Administrador", "201901103")
+            //window.open("/admin","_self")
+            navigate('/admin')
+            console.log("estoy en admin")
+        } else if (data.data === "SI") {
+            localStorage.setItem('current', userLogin);
+            window.open("/empleado", "_self");
+           
+        } else {
+            swal({
+                title: 'Credenciales Incorrectas!',
+                text: 'Intenta de nuevo',
+                icon: 'error',
+                confirmButtonText: 'Ok'
+            })
+            setUsuario("")
+            setPassword("")
+        }
+    }*/
 
-  };
-  const validar = (data) => {
-    let texts = "";
-    for (let i = 0; i < data.salida.length; i++) {
-      texts += data.salida[i];
-    }
-    setOutputValue(texts);
-  };
-
-  const handleOpenFile = async (e) => {
-    const file = e.target.files[0]; // Obtiene el archivo seleccionado por el usuario
-    const fileContent = await readFileContent(file); // Lee el contenido del archivo
-    setInputValue(fileContent); // Actualiza el estado con el contenido del archivo
-  };
-
-  const readFileContent = (file) => {
-    return new Promise((resolve, reject) => {
-      const reader = new FileReader();
-      reader.onload = (e) => resolve(e.target.result);
-      reader.onerror = (e) => reject(e);
-      reader.readAsText(file);
-    });
-  };
-
-  const handleSaveFile = () => {
-    const blob = new Blob([inputValue], { type: 'text/plain;charset=utf-8' }); // Crea un Blob con el contenido del editor
-    saveAs(blob, "archivo.sc"); // Guarda el archivo con el nombre "archivo.txt"
-  };
-
-  const handleCreateFile = () => {
-    const emptyContent = ""; // Contenido en blanco para el archivo
-    setInputValue(emptyContent)
-
-    const blob = new Blob([emptyContent], { type: 'text/plain;charset=utf-8' }); // Crea un Blob con el contenido en blanco
-    saveAs(blob, "nuevoArchivo.sc"); // Guarda el archivo con la extensión .sc y el nombre "nuevoArchivo"
-  };
-  const handleOpenReportErrors = async (e) => {
-    e.preventDefault();
-    await fetch('http://localhost:4000/erroresT', {
-      method: 'GET',
-      mode: 'cors',
-      headers: {
-        'Access-Control-Allow-Origin': '*',
-        'Content-Type': 'application/json'
-      }
-    }).then(response => response.json()).then(data => validare(data));
-
-    // Aquí puedes implementar la lógica para ejecutar el código y actualizar la salida
-    // Ejemplo: establecer la salida como el valor de entrada
-  };
-  const validare = (data) => {
-    console.log(data.salida);
-  };
   return (
     <>
       <div className="conjuntoBotones">
-        <Form>
+        <Form onClick={handleSubmit}>
           <InputGroup size="lg" className="custom-input-group">
             <InputGroup.Text id="inputGroup-sizing-lg">$_ </InputGroup.Text>
             <Form.Control
               placeholder="Ingresa un comando"
+              type="text"
               aria-label="Large"
               aria-describedby="inputGroup-sizing-sm"
               className="custom-input"
+              onChange={e => setComandos(e.target.value)}
+              value={vcoman}
+              autoFocus 
+              required
             />
             <Button variant="primary" type="button" className="custom-submit-button">
               Enviar
@@ -105,6 +96,7 @@ const CodeEditorWindow = () => {
           </InputGroup>
 
         </Form>
+      </div>
       <div className="code-editor-container">
         <div className="code-editor-right">
           <h2>Consola</h2>
@@ -112,14 +104,14 @@ const CodeEditorWindow = () => {
             className="output-console"
             value={outputValue}
             readOnly
-            rows={inputValue.split("\n").length}
             cols={50}
             placeholder="Output"
           />
         </div>
       </div>
-      <div class="movilizando">
-        <div class="spinner">
+      
+      <div className="movilizando">
+        <div className="spinner">
           <div></div>
           <div></div>
           <div></div>
@@ -128,7 +120,7 @@ const CodeEditorWindow = () => {
           <div></div>
         </div></div>
 
-      </div>
+      
       <br></br>
     </>
   );

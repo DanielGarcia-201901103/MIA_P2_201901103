@@ -7,10 +7,10 @@ const House = () => {
       <h1>¡Hola! &#x1F44B;</h1>
       <h2>Bienvenido al Proyecto </h2>
       <h3>Esperamos tengas una buena experiencia</h3>
-      <div class="container">
-        <div class="loader"></div>
-        <div class="loader"></div>
-        <div class="loader"></div>
+      <div className="container">
+        <div className="loader"></div>
+        <div className="loader"></div>
+        <div className="loader"></div>
       </div>
 
       <footer>
