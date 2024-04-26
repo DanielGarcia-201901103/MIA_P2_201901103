@@ -96,18 +96,16 @@ const CodeEditorWindow = () => {
             <Form.Control
               placeholder="Ingresa un comando"
               aria-label="Large"
-          aria-describedby="inputGroup-sizing-sm"
-          className="custom-input" 
+              aria-describedby="inputGroup-sizing-sm"
+              className="custom-input"
             />
-              <Button variant="primary" type="button" className="custom-submit-button">
-                Enviar
-              </Button>
+            <Button variant="primary" type="button" className="custom-submit-button">
+              Enviar
+            </Button>
           </InputGroup>
 
         </Form>
-      </div>
       <div className="code-editor-container">
-
         <div className="code-editor-right">
           <h2>Consola</h2>
           <textarea
@@ -120,6 +118,18 @@ const CodeEditorWindow = () => {
           />
         </div>
       </div>
+      <div class="movilizando">
+        <div class="spinner">
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+        </div></div>
+
+      </div>
+      <br></br>
     </>
   );
 };

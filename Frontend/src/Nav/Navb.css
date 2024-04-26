@@ -5,6 +5,7 @@
   
   .navbar-brand {
     margin-right: auto; /* Alinea a la izquierda */
+    color:burlywood;
   }
   
   .nav-link {

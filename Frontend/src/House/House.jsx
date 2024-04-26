@@ -1,11 +1,23 @@
-
+import './House.css';
 import Navb from "../Nav/Navb.jsx"
 const House = () => {
   return (
     <>
-    <Navb/>
-    <p>Hola estoy en home</p>
-</>
+      <Navb />
+      <h1>¡Hola! &#x1F44B;</h1>
+      <h2>Bienvenido al Proyecto </h2>
+      <h3>Esperamos tengas una buena experiencia</h3>
+      <div class="container">
+        <div class="loader"></div>
+        <div class="loader"></div>
+        <div class="loader"></div>
+      </div>
+
+      <footer>
+        Josué Daniel Rojché García <br />
+        201901103
+      </footer>
+    </>
   );
 }
 
