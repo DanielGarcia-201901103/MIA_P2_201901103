@@ -1,45 +1,62 @@
-h2{
-    color: chartreuse;
-    font-family: "Roboto Mono", monospace;
-    font-optical-sizing: auto;
-    font-weight: 700;
-    font-style: normal;
+.custom-input-group {
+    margin-bottom: 20px;
+    /* Espacio entre el InputGroup y el siguiente elemento */
+
+    font-size: 38px;
+    /* Tamaño de fuente más grande */
+    padding: 45px;
+    /* Espaciado interno más grande */
 }
 
-.gbotones{
-    background-color: rgb(69, 148, 122);
-}
-.gbotonesR{
-    background-color: rgb(126, 115, 7);
-
-}
-.botonE{
-    background-color: rgb(59, 77, 71);
+.custom-input-group .btn-primary {
+    margin-left: 20px;
+    /* Espacio a la izquierda del Button dentro del InputGroup */
 }
 
-.gbotonIn{
-    background-color: rgb(69, 148, 122);
+.custom-input {
+    width: 900px;
+    /* Ancho personalizado, ajusta según sea necesario */
+    font-size: 18px;
+    /* Tamaño de fuente más grande */
+    padding: 15px;
+    /* Espaciado interno más grande */
+}
 
-    border-radius: 8px; /* Borde redondo */
+.custom-submit-button {
+    background-color: rgb(133, 56, 5);
+    /* Cambia el color de fondo del botón a rojo */
+    /* Puedes agregar más estilos según sea necesario, como color de texto, borde, etc. */
+    color: white;
+    /* Color de texto blanco */
     border: 1px solid transparent;
-    font-size: 1em;
-    font-weight: 500;
-    font-family: inherit;
-    padding: 10px 20px; /* Espaciado interno */
-    cursor: pointer;
-    transition: border-color 0.25s;
+    /* Borde transparente */
+    border-radius: 5px;
+    /* Borde redondeado */
+    padding: 10px 20px;
+    /* Espaciado interno */
+    font-size: 18px;
+    width: 200px;
 }
 
-.conjuntoBotones{
-    display: flex;
-    justify-content:  center;
-    margin: 10px;
+.custom-submit-button:hover {
+    background-color: darkred;
+    /* Cambia el color de fondo del botón al pasar el mouse */
+    /* Puedes ajustar otros estilos al pasar el mouse, como el color de texto */
 }
 
-#fileInput {
-    border-radius: 8px; /* Borde redondo */
-    font-size: 16px; /* Tamaño de fuente */
-    padding: 10px 20px; /* Espaciado interno */
-    display: inline-block; /* Alinear en línea con el botón */
-    margin-right: 10px; /* Margen derecho para separar del botón */
+.output-console {
+    width: 100%;
+    /* Ancho del textarea al 100% */
+    height: 300px;
+    /* Altura fija de 300px */
+    resize: none;
+    /* Evita que el usuario pueda redimensionar el textarea */
+    border-radius: 5px;
+    /* Borde redondeado */
+    padding: 10px;
+    /* Espaciado interno */
+    border: 1px solid #ccc;
+    /* Borde con color de borde gris claro */
+    box-sizing: border-box;
+    /* Incluye el borde en el tamaño total */
 }

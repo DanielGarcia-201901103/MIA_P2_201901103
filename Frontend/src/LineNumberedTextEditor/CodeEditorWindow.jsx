@@ -2,7 +2,9 @@ import React, { useState } from "react";
 import Editor from "@monaco-editor/react";
 import "./CodeEditorWindow.css";
 import Button from 'react-bootstrap/Button';
-import ButtonGroup from 'react-bootstrap/ButtonGroup';
+import Form from 'react-bootstrap/Form';
+import InputGroup from 'react-bootstrap/InputGroup';
+
 import { saveAs } from 'file-saver'; // Importa la función saveAs de FileSaver.js
 
 
@@ -88,29 +90,24 @@ const CodeEditorWindow = () => {
   return (
     <>
       <div className="conjuntoBotones">
-        <ButtonGroup aria-label="Basic example">
-          <Button className="gbotones" onClick={handleCreateFile}>Crear Archivo</Button>{' '}
-          <Button className="gbotonIn" as="label" htmlFor="fileInput">Abrir Archivo</Button>{' '}
-          <input id="fileInput" type="file" accept=".sc" style={{ display: 'none', borderradius: "5px" }} onChange={handleOpenFile} />
-          <Button className="gbotones" onClick={handleSaveFile} >Guardar Archivo</Button>{' '}
-          <Button className="botonE" onClick={handleRunCode}>Enviar</Button>{' '}
-          <Button className="gbotonesR" onClick={handleOpenReportErrors}>Reporte Errores</Button>{' '}
-          <Button className="gbotonesR">Reporte Tabla Simbolos</Button>{' '}
-          <Button className="gbotonesR">Generar Arbol AST</Button>{' '}
-        </ButtonGroup>
+        <Form>
+          <InputGroup size="lg" className="custom-input-group">
+            <InputGroup.Text id="inputGroup-sizing-lg">$_ </InputGroup.Text>
+            <Form.Control
+              placeholder="Ingresa un comando"
+              aria-label="Large"
+          aria-describedby="inputGroup-sizing-sm"
+          className="custom-input" 
+            />
+              <Button variant="primary" type="button" className="custom-submit-button">
+                Enviar
+              </Button>
+          </InputGroup>
+
+        </Form>
       </div>
       <div className="code-editor-container">
-        <div className="code-editor-left">
-          <h2>Entrada</h2>
-          <Editor
-            height="50vh"
-            width={`100%`}
-            value={inputValue}
-            theme="vs-dark"
-            defaultValue="// Ingresa tu código aquí"
-            onChange={handleEditorChange}
-          />
-        </div>
+
         <div className="code-editor-right">
           <h2>Consola</h2>
           <textarea

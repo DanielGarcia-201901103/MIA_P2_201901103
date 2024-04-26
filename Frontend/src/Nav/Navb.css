@@ -1,0 +1,16 @@
+.navbar-nav {
+    display: flex;
+    align-items: center;
+  }
+  
+  .navbar-brand {
+    margin-right: auto; /* Alinea a la izquierda */
+  }
+  
+  .nav-link {
+    margin-left: auto; /* Alinea a la derecha */
+    margin-right: 300px; /* Espacio entre los enlaces */
+    font-style: inherit;
+    color:burlywood;
+    font-size: 20px;
+  }

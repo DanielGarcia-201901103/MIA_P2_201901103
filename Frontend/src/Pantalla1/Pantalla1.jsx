@@ -1,8 +1,11 @@
 
+import Navb from "../Nav/Navb.jsx"
+import CodeEditorWindow from "../LineNumberedTextEditor/CodeEditorWindow.jsx"
 const Pantalla1 = () => {
     return (
       <>
-      <p>Hola estoy en pantalla 1</p>
+      <Navb/>
+      <CodeEditorWindow/>
   </>
     );
   }
