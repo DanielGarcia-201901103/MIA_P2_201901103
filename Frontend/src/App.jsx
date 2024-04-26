@@ -1,5 +1,5 @@
 import React from "react";
-import CodeEditorWindow from "./LineNumberedTextEditor/CodeEditorWindow";
+import Navb from "./Nav/Navb.jsx"
 import "./App.css";
 
 const App = () => {
@@ -7,12 +7,12 @@ const App = () => {
   return (
     <>
       <div className="container">
-        <CodeEditorWindow />
+        <Navb />
       </div>
       <footer>
-      Josué Daniel Rojché García <br/>
-      201901103
-    </footer>
+        Josué Daniel Rojché García <br />
+        201901103
+      </footer>
     </>
   );
 };

@@ -93,7 +93,7 @@ const CodeEditorWindow = () => {
           <Button className="gbotonIn" as="label" htmlFor="fileInput">Abrir Archivo</Button>{' '}
           <input id="fileInput" type="file" accept=".sc" style={{ display: 'none', borderradius: "5px" }} onChange={handleOpenFile} />
           <Button className="gbotones" onClick={handleSaveFile} >Guardar Archivo</Button>{' '}
-          <Button className="botonE" onClick={handleRunCode}>Ejecutar</Button>{' '}
+          <Button className="botonE" onClick={handleRunCode}>Enviar</Button>{' '}
           <Button className="gbotonesR" onClick={handleOpenReportErrors}>Reporte Errores</Button>{' '}
           <Button className="gbotonesR">Reporte Tabla Simbolos</Button>{' '}
           <Button className="gbotonesR">Generar Arbol AST</Button>{' '}
